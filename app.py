@@ -45,7 +45,7 @@ if uploaded_file is not None:
     if "image" in file_type:
         st.subheader("Processing Image...")
         # Display original image
-       st.image(uploaded_file, caption="Original Image", use_container_width=True)
+        st.image(uploaded_file, caption="Original Image", use_container_width=True)
 
         # Run inference
         results = model.predict(source=temp_file_path, conf=CONF_THRESHOLD, iou=IOU_THRESHOLD)
@@ -54,7 +54,7 @@ if uploaded_file is not None:
         if results and len(results) > 0:
             annotated_img_array = results[0].plot() # Get annotated image as numpy array
             annotated_img_pil = Image.fromarray(cv2.cvtColor(annotated_img_array, cv2.COLOR_BGR2RGB))
-           st.image(annotated_img_pil, caption="Detected Vehicles", use_container_width=True)
+            st.image(annotated_img_pil, caption="Detected Vehicles", use_container_width=True)
             st.success(f"Detected {len(results[0].boxes)} vehicles.")
         else:
             st.warning("No vehicles detected in the image.")
