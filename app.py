@@ -45,7 +45,7 @@ if uploaded_file is not None:
     if "image" in file_type:
         st.subheader("Processing Image...")
         # Display original image
-       st.image(uploaded_file, caption="Original Image", use_column_width=True)
+       st.image(uploaded_file, caption="Original Image", use_container_width=True)
 
         # Run inference
         results = model.predict(source=temp_file_path, conf=CONF_THRESHOLD, iou=IOU_THRESHOLD)
